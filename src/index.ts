@@ -1,9 +1,10 @@
 import * as core from "@actions/core";
 import fs from "fs";
 import util from "util";
+import {load} from 'js-yaml'
 const readFileAsync = util.promisify(fs.readFile);
 
-async function run() {
+async function run() : Promise<void> {
   const file_path: string = core.getInput("file_path");
   const prop_path: string = core.getInput("prop_path");
   let pathArr: string[] = [];
@@ -14,11 +15,11 @@ async function run() {
 
   try {
     const buffer = await readFileAsync(file_path);
-    let json = JSON.parse(buffer.toString());
+    let json: any = load(buffer.toString());
 
     if (pathArr.length > 0) {
       json = pathArr.reduce(
-        (obj, key) =>
+        (obj:any, key) =>
           key && obj && obj[key] !== "undefined" ? obj[key] : undefined,
         json
       );
@@ -32,7 +33,7 @@ async function run() {
     } else {
       core.setFailed(`can not find prop_path: ${prop_path} in json file.`);
     }
-  } catch (error) {
+  } catch (error: any) {
     console.log(error);
     core.setFailed(error.message);
   }

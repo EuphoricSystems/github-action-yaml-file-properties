@@ -11,14 +11,14 @@ Get properties
 ```yaml
 ---
 - name: get properties
-  id: json_properties
-  uses: zoexx/github-action-json-file-properties@release
+  id: yaml_properties
+  uses: EuphoricSystems/github-action-yaml-file-properties@release
   with:
-    file_path: "package.json"
+    file_path: "sample.yml"
 
 - run: |
-    echo ${{steps.json_properties.outputs.name}}
-    echo ${{steps.json_properties.outputs.version}}
+    echo ${{steps.yaml_properties.outputs.name}}
+    echo ${{steps.yaml_properties.outputs.version}}
 ```
 
 Get a specified property **value** with `prop_path`
@@ -27,9 +27,9 @@ Get a specified property **value** with `prop_path`
 ---
 - name: get specified property
   id: repository_type
-  uses: zoexx/github-action-json-file-properties@release
+  uses: EuphoricSystems/github-action-yaml-file-properties@release
   with:
-    file_path: "package.json"
+    file_path: "sample.yml"
     prop_path: "repository.type"
 
 - run: |

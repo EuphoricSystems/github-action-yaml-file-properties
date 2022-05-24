@@ -1,6 +1,6 @@
-name: "Get Properties From JSON File"
-description: "GitHub Action to load properties from a JSON file."
-author: "zoexx"
+name: "Get Properties From YAML File"
+description: "GitHub Action to load properties from a YAML file."
+author: "EuphoricSystems"
 inputs:
   file_path:
     required: true
@@ -9,8 +9,8 @@ inputs:
     required: false
     description: "e.g.: key1.key2"
 runs:
-  using: "node12"
-  main: "dist/index.js"
+  using: "node16"
+  main: "lib/index.js"
 branding:
   color: "yellow"
   icon: "fast-forward"
