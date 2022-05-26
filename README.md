@@ -12,7 +12,7 @@ Get properties
 ---
 - name: get properties
   id: yaml_properties
-  uses: EuphoricSystems/github-action-yaml-file-properties@release
+  uses: EuphoricSystems/github-action-yaml-file-properties@v1.1.0
   with:
     file_path: "sample.yml"
 
@@ -27,7 +27,7 @@ Get a specified property **value** with `prop_path`
 ---
 - name: get specified property
   id: repository_type
-  uses: EuphoricSystems/github-action-yaml-file-properties@release
+  uses: EuphoricSystems/github-action-yaml-file-properties@v1.1.0
   with:
     file_path: "sample.yml"
     prop_path: "repository.type"
